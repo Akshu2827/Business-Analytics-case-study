@@ -255,3 +255,51 @@ Feature_Category ✅
 ---
 
 **End of Document**
+
+
+
+# ConnectTel Churn Reduction Strategy: Recommendations
+
+## PROBLEM
+- **Current churn rate**: 27% (↑9 percentage points QoQ)  
+- **Quarterly revenue impact**: $2.1M  
+- High churn is primarily driven by dissatisfaction with internet service quality, billing friction, and price sensitivity.
+
+## KEY INSIGHTS
+1. **Fiber Optic customers churn significantly more** (strongest correlation: 0.308)  
+   → Despite being a premium service, Fiber users are leaving at a much higher rate, likely due to higher MonthlyCharges combined with perceived service or reliability issues.
+
+2. **Electronic Check is the riskiest payment method** (correlation: 0.302)  
+   → Customers using Electronic Check have substantially higher churn. This points to payment friction, lack of auto-renewal convenience, and higher likelihood of service cancellation.
+
+3. **Higher MonthlyCharges and PaperlessBilling strongly predict churn** (correlations 0.193 and 0.192)  
+   → Price-sensitive and digitally engaged customers are more likely to switch providers when bills feel too high or when switching is frictionless.
+
+## RECOMMENDATIONS
+
+✅ **High-Impact / Low-Effort**:  
+**Launch targeted "Switch to Auto-Pay" campaign for Electronic Check + Fiber Optic users**  
+→ Expected impact: Reduce churn by 4–6% in targeted segment within one quarter (based on payment method coefficient strength).
+
+✅ **High-Impact / High-Effort**:  
+**Review and optimize Fiber Optic pricing + service bundles** (e.g., introduce loyalty discounts for 1- or 2-year contracts)  
+→ Timeline: 8–10 weeks  
+→ Expected impact: Address the root cause of the highest correlation driver (InternetService_Fiber optic).
+
+✅ **Quick Win**:  
+**Offer retention incentives (1–2 months discount or free add-on) to customers flagged by the model as high-risk (predicted churn probability > 60%)**  
+→ Owner: Retention & Marketing Team  
+→ Focus on SeniorCitizen segment with extra care to avoid bias.
+
+## NEXT STEPS
+- **Pilot test** Recommendation #1 (Auto-Pay campaign) with 5,000 high-risk customers (Fiber + Electronic Check) by **April 20, 2026**.
+- **Monitor weekly**: Churn rate in pilot group vs control group; success threshold: **≥ 15% relative reduction** in churn.
+- Run fairness audit on SeniorCitizen predictions before full rollout.
+- Schedule model retraining and A/B testing of retention offers in Q3.
+
+**Prepared using Logistic Regression baseline model**  
+**Precision: 58.07%** | **Overall Accuracy: 76.72%**  
+Focus on **Precision** ensures retention budget is spent on customers who are truly at risk of leaving.
+
+---
+**Note**: SeniorCitizen shows moderate correlation (0.151). All retention actions targeting this group must be monitored for fairness to avoid unintended discrimination.
